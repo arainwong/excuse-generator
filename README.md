@@ -5,4 +5,4 @@
 <!-- When you lose a game, it will help you come up with excuses. -->
 
 ## 全文背诵
-<img src="https://github.com/arainwong/excuse-generator/blob/main/images/saying.JPG?raw=true" alt="someone_saying" width="40%"/>
+<img src="https://github.com/arainwong/excuse-generator/blob/main/images/saying.JPG?raw=true" alt="someone_saying" width="25%"/>

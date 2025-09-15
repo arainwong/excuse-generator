@@ -9,12 +9,6 @@ class ExcuseGenerator:
         """
         if seed is not None:
             random.seed(seed)
-        
-        self.positive_prob = 0.22
-        self.neutral_prob = 0.25
-
-        self.person_prob = 0.4
-        self.object_prob = 0.3
 
         self.excuse_dict = defaultdict(list)
 
@@ -52,6 +46,31 @@ class ExcuseGenerator:
                 ]
             
             self.excuse_dict["negative_neutral_decorations"] = ["真恶心","真垃圾",]
+
+        positive_prob_weight = 1
+        neutral_prob_weight = 1
+        person_prob_weight = 1
+        obejct_prob_weight = 1
+
+        self.num_special = len(self.excuse_dict["special"])
+        self.num_person_pos = len(self.excuse_dict["positive_person_nouns"]) * (len(self.excuse_dict["positive_person_decorations"]) + len(self.excuse_dict["positive_neutral_decorations"]))
+        self.num_obj_pos = len(self.excuse_dict["positive_object_nouns"]) * (len(self.excuse_dict["positive_object_decorations"]) + len(self.excuse_dict["positive_neutral_decorations"]))
+        self.num_person_neg = len(self.excuse_dict["negative_person_nouns"]) * (len(self.excuse_dict["negative_person_decorations"]) + len(self.excuse_dict["negative_neutral_decorations"]))
+        self.num_obj_neg = len(self.excuse_dict["negative_object_nouns"]) * (len(self.excuse_dict["negative_object_decorations"]) + len(self.excuse_dict["negative_neutral_decorations"]))
+        
+        self.num_neutral = len(self.excuse_dict["positive_neutral_decorations"]) * (len(self.excuse_dict["positive_person_nouns"]) + len(self.excuse_dict["positive_object_nouns"])) + len(self.excuse_dict["negative_neutral_decorations"]) * (len(self.excuse_dict["negative_person_nouns"]) + len(self.excuse_dict["negative_object_nouns"]))
+
+        total_combinations = self.num_special + self.num_person_pos + self.num_obj_pos + self.num_person_neg + self.num_obj_neg
+
+        self.positive_prob = positive_prob_weight * (self.num_person_pos + self.num_obj_pos) / total_combinations
+        self.neutral_prob = neutral_prob_weight * self.num_neutral / total_combinations
+
+        self.person_prob = person_prob_weight * (self.num_person_pos + self.num_person_neg) / total_combinations
+        self.object_prob = obejct_prob_weight * (self.num_obj_pos + self.num_obj_neg) / total_combinations
+        
+        # print(f'positive_prob: {self.positive_prob:.2f}, neutral_prob: {self.neutral_prob:.2f}')
+        # print(f'person_prob: {self.person_prob:.2f}, object_prob: {self.object_prob:.2f}, special_prob: {1-self.person_prob-self.object_prob:.2f}')
+        # print(f'total_combinations: {total_combinations}, num_special:{self.num_special}, num_person_pos: {self.num_person_pos}, num_obj_pos: {self.num_obj_pos}, num_person_neg: {self.num_person_neg}, num_obj_neg: {self.num_obj_neg}')
 
     def load_csv(self, path):
         with open(path, newline="", encoding="utf-8") as f:
@@ -125,13 +144,13 @@ class ExcuseGenerator:
 if __name__ == "__main__":
     g = ExcuseGenerator(csv_path="config/excuse_dictionary.csv")
     # print(g.excuse_dict)
-    num_samples = 100
+    num_samples = 10
     special_counter = 0
     pos_counter = 0
     neg_counter = 0
     for s in range(num_samples):
         cat, sample = g.generate()
-        if cat == 'special':
+        if cat == 'special ':
             special_counter += 1
         elif cat == 'positive':
             pos_counter += 1
