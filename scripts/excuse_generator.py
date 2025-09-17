@@ -68,9 +68,9 @@ class ExcuseGenerator:
         self.person_prob = person_prob_weight * (self.num_person_pos + self.num_person_neg) / total_combinations
         self.object_prob = obejct_prob_weight * (self.num_obj_pos + self.num_obj_neg) / total_combinations
         
-        # print(f'positive_prob: {self.positive_prob:.2f}, neutral_prob: {self.neutral_prob:.2f}')
-        # print(f'person_prob: {self.person_prob:.2f}, object_prob: {self.object_prob:.2f}, special_prob: {1-self.person_prob-self.object_prob:.2f}')
-        # print(f'total_combinations: {total_combinations}, num_special:{self.num_special}, num_person_pos: {self.num_person_pos}, num_obj_pos: {self.num_obj_pos}, num_person_neg: {self.num_person_neg}, num_obj_neg: {self.num_obj_neg}')
+        print(f'positive_prob: {self.positive_prob:.2f}, neutral_prob: {self.neutral_prob:.2f}')
+        print(f'person_prob: {self.person_prob:.2f}, object_prob: {self.object_prob:.2f}, special_prob: {1-self.person_prob-self.object_prob:.2f}')
+        print(f'total_combinations: {total_combinations}, num_special:{self.num_special}, num_person_pos: {self.num_person_pos}, num_obj_pos: {self.num_obj_pos}, num_person_neg: {self.num_person_neg}, num_obj_neg: {self.num_obj_neg}')
 
     def load_csv(self, path):
         with open(path, newline="", encoding="utf-8") as f:
@@ -144,7 +144,7 @@ class ExcuseGenerator:
 if __name__ == "__main__":
     g = ExcuseGenerator(csv_path="config/excuse_dictionary.csv")
     # print(g.excuse_dict)
-    num_samples = 10
+    num_samples = 20
     special_counter = 0
     pos_counter = 0
     neg_counter = 0
