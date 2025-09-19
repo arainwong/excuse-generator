@@ -84,7 +84,7 @@ class ExcuseGenerator:
 
 
     def make_special(self) -> str:
-        return [f"special " ,random.choice(self.excuse_dict["special"])]
+        return [f"special" ,random.choice(self.excuse_dict["special"])]
 
     def make_person_excuse(self) -> str:
         noun_prob = random.random() # return random a number (0, 1)
@@ -150,8 +150,9 @@ if __name__ == "__main__":
     neg_counter = 0
     for s in range(num_samples):
         cat, sample = g.generate()
-        if cat == 'special ':
+        if cat == 'special':
             special_counter += 1
+            cat = f'{cat} ' # print output alignment
         elif cat == 'positive':
             pos_counter += 1
         elif cat == 'negative':

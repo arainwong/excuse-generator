@@ -4,6 +4,8 @@
 指责 🫵 指责 🫵 指责 🫵 
 <!-- When you lose a game, it will help you come up with excuses. -->
 
+<img src="https://github.com/arainwong/excuse-generator/blob/main/images/saying.JPG?raw=true" alt="someone_saying" width="25%"/>
+
 ## Implementations
 | Implementation | Link | Author |
 |----------------|------|--------|
@@ -11,5 +13,6 @@
 | Discord Bot | WIP | - |
 | OBS Plugin | WIP | - |
 
-## 全文背诵
-<img src="https://github.com/arainwong/excuse-generator/blob/main/images/saying.JPG?raw=true" alt="someone_saying" width="25%"/>
+
+## Acknowledgments
+感谢 [tapioca](https://github.com/Diudiu-wl), pp, mimiko, @AAA_香叶茶批发商（小红书）为`excuse_dictionary`提供的语料。
