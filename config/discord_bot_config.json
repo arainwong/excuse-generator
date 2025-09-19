@@ -1,0 +1,8 @@
+{
+  "DISCORD_TOKEN": "XXXXXXXXXXXXX",
+  "GOOD_REACTION": "🤓",
+  "BAD_REACTION": "👋",
+  "MESSAGE_MODE": "keep",
+  "BUTTON_LABEL": "换一个",
+  "COOLDOWN_SECONDS": 1
+}

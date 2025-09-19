@@ -9,10 +9,10 @@
 ## Implementations
 | Implementation | Link | Author |
 |----------------|------|--------|
-| Web | [Demo](https://diudiu-wl.github.io/excuse-generator/) | [Tapioca](https://github.com/Diudiu-wl) |
-| Discord Bot | WIP | - |
+| Web | [Demo](https://diudiu-wl.github.io/excuse-generator/) | [tapioca](https://github.com/Diudiu-wl) |
+| Discord Bot | [README](./discord_bot/README.md) | arainwong |
 | OBS Plugin | WIP | - |
 
 
 ## Acknowledgments
-感谢 [tapioca](https://github.com/Diudiu-wl), pp, mimiko, @AAA_香叶茶批发商（小红书）为`excuse_dictionary`提供的语料。
+感谢 pp, mimiko, @AAA_香叶茶批发商（小红书）为`excuse_dictionary`提供的语料。
